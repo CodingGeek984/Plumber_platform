@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 import '../styles/landing-future.css';
 
 const SERVICE_LINES = [
@@ -164,17 +162,10 @@ const NAV_ITEMS = [
 ];
 
 const Landing = () => {
-  const { user } = useAuth();
   const shellRef = useRef(null);
   const orbRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeService, setActiveService] = useState(null);
-
-  const roleLabel = user?.role === 'admin'
-    ? 'Центр управления'
-    : user?.role === 'employee'
-      ? 'Выездная команда'
-      : 'Кабинет клиента';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -272,19 +263,9 @@ const Landing = () => {
             ))}
             <div className="future-nav__mobile">
               <a href="tel:+77054477555" className="future-nav__phone future-nav__phone--mobile">8 705 447 7555</a>
-              {user ? (
-                <Link to="/dashboard" className="future-user future-user--mobile" onClick={() => setMenuOpen(false)}>
-                  <span className="future-user__pulse" />
-                  <span className="future-user__copy">
-                    <strong>{user.name}</strong>
-                    <span>{roleLabel}</span>
-                  </span>
-                </Link>
-              ) : (
-                <Link to="/auth" className="future-btn future-btn--ghost future-btn--sm" onClick={() => setMenuOpen(false)}>
-                  Войти
-                </Link>
-              )}
+              <button type="button" className="future-btn future-btn--ghost future-btn--sm" onClick={() => go('contact')}>
+                Контакты
+              </button>
               <button type="button" className="future-btn future-btn--primary future-btn--sm" onClick={() => openRequest()}>
                 Отправить заявку
               </button>
@@ -293,19 +274,9 @@ const Landing = () => {
 
           <div className="future-nav__actions">
             <a href="tel:+77054477555" className="future-nav__phone">8 705 447 7555</a>
-            {user ? (
-              <Link to="/dashboard" className="future-user">
-                <span className="future-user__pulse" />
-                <span className="future-user__copy">
-                  <strong>{user.name}</strong>
-                  <span>{roleLabel}</span>
-                </span>
-              </Link>
-            ) : (
-              <Link to="/auth" className="future-btn future-btn--ghost future-btn--sm">
-                Войти
-              </Link>
-            )}
+            <button type="button" className="future-btn future-btn--ghost future-btn--sm" onClick={() => go('contact')}>
+              Контакты
+            </button>
             <button type="button" className="future-btn future-btn--primary future-btn--sm" onClick={() => openRequest()}>
               Отправить заявку
             </button>
