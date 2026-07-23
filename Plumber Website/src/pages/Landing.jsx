@@ -245,10 +245,7 @@ const Landing = () => {
       <header className="future-nav future-nav--static">
         <div className="future-shell future-nav__shell">
           <button type="button" className="future-brand" onClick={() => go('hero')}>
-            <span className="future-brand__icon" aria-hidden="true">
-              <span className="future-brand__dot" />
-              <span className="future-brand__dot future-brand__dot--small" />
-            </span>
+            <img src="/favicon.jpeg" alt="Сантех строй" className="future-brand__icon" style={{ width: '40px', height: '40px', borderRadius: '8px', objectFit: 'cover' }} />
             <span className="future-brand__copy">
               <strong>Сантех строй</strong>
               <span>Платформа сантехнических услуг</span>
@@ -763,10 +760,7 @@ const Landing = () => {
       <footer className="future-footer">
         <div className="future-shell future-footer__inner">
           <button type="button" className="future-brand future-brand--footer" onClick={() => go('hero')}>
-            <span className="future-brand__icon" aria-hidden="true">
-              <span className="future-brand__dot" />
-              <span className="future-brand__dot future-brand__dot--small" />
-            </span>
+            <img src="/favicon.jpeg" alt="Сантех строй" className="future-brand__icon" style={{ width: '40px', height: '40px', borderRadius: '8px', objectFit: 'cover' }} />
             <span className="future-brand__copy">
               <strong>Сантех строй</strong>
               <span>Профессиональные сантехнические услуги</span>
